@@ -1,0 +1,131 @@
+/* Overlay backdrop with blur */
+.navbar-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+  cursor: pointer;
+}
+
+/* Main navbar container */
+.navbar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 75%;
+  height: 100vh;
+
+  background-color: white;
+
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter",
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* 🔥 ADDED FOR ANIMATION — navbar starts off-screen */
+  /* transform: translateX(100%);
+  transition: transform 0.4s ease;  */
+
+  transform: translateX(100%);
+
+  transition: transform 0.4s ease;
+}
+.navbar.open {
+  transform: translateX(0);
+}
+/* 🔥 ADDED FOR ANIMATION — when .open class is added, navbar slides into screen */
+/* .navbar.open {
+  transform: translateX(0);
+} */
+/* Close button */
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 32px 40px 24px;
+  min-height: 88px;
+  font-weight: 500;
+  color: #1d1d1f;
+  letter-spacing: -0.022em;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+}
+
+.back-image {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+
+  z-index: 1;
+}
+
+/* Navigation links container */
+.navbar-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  gap: 4px;
+}
+
+/* Individual navigation button */
+.navbar-button {
+  display: flex;
+  align-items: center;
+  padding: 24px 40px;
+  font-size: 32px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  text-decoration: none;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+}
+
+/* .navbar-button:hover {
+  color: #000;
+  border-left-color: #000;
+  transform: translateY(-2px);
+} */
+
+/* Responsive adjustments */
+@media screen and (max-width: 800px) {
+  .navbar-button {
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 50px;
+    padding: 10px 32px;
+  }
+  .navbar {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .navbar {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 414px) {
+  /* .navbar {
+    width: 90%;
+  } */
+
+  .navbar-button {
+    font-size: 20px;
+    padding: 5px 26px;
+  }
+
+  .back-button {
+    padding: 20px 26px 18px;
+    min-height: 72px;
+    font-size: 16px;
+  }
+}
